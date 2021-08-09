@@ -5,7 +5,15 @@ export interface MidiData {
     duration: number;
 }
 
+export interface SolfegeData {
+    activeFramePerNote: ActiveFrameForSolfege;
+    duration: number;
+}
+
 export interface ActiveFrameForNotes {
+    [midi: string]: ActiveFrames;
+}
+export interface ActiveFrameForSolfege {
     [midi: string]: ActiveFrames;
 }
 

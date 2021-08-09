@@ -7,6 +7,7 @@ import { DELAY_BEFORE_FIRST_NOTE, DELAY_BEFORE_MUSIC_START, TITLE_DURATION } fro
 import { NotesScene } from './NotesScene/NotesScene';
 import { PianoScene } from './PianoScene/PianoScene';
 import { TitleScene } from './TitleScene/TitleScene';
+import { SolfegeScene } from './SolfegeScene/SolfegeScene';
 
 export const PianoComposition: FunctionComponent = () => {
     return (
@@ -21,6 +22,11 @@ export const PianoComposition: FunctionComponent = () => {
             <Sequence from={DELAY_BEFORE_MUSIC_START} durationInFrames={Infinity} name="Audio">
                 <Audio src={audio} />
             </Sequence>
+
+            <Sequence from={TITLE_DURATION} durationInFrames={Infinity} name="Solfege">
+                <SolfegeScene delay={DELAY_BEFORE_FIRST_NOTE} />
+            </Sequence>
+
             <Sequence from={0} durationInFrames={Infinity} name="Piano">
                 <PianoScene />
             </Sequence>

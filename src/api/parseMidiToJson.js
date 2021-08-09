@@ -1,12 +1,13 @@
 const fs = require('fs');
 const toneJsMidi = require('@tonejs/midi');
+var readline = require('readline');
 
 const FPS = 60;
 
 const { Midi } = toneJsMidi;
 
 const isNoteActive = (currentSecondInVideo, note) => {
-    if (note.time >= currentSecondInVideo) {
+    if (note.time >=  currentSecondInVideo) {
         return false;
     }
 
@@ -27,8 +28,8 @@ const getActiveNotesFromTrack = (currentSecondInVideo, track) => {
 
 const printProgress = (frame, totalFrames) => {
     const progress = ((frame / totalFrames) * 100).toFixed(2);
-    process.stdout.clearLine();
-    process.stdout.cursorTo(0);
+    readline.clearLine(process.stdout);
+    readline.cursorTo(process.stdout, 0);
     process.stdout.write(`Converting midi to jsonc : ${progress}% (${frame}/${totalFrames})`);
 };
 
@@ -40,7 +41,6 @@ const convertMidiToActiveFramePerNote = (midi) => {
         const currentSecondInVideo = frame / FPS;
         const activesNotesAtFrame = [
             ...getActiveNotesFromTrack(currentSecondInVideo, midi.tracks[0]),
-            ...getActiveNotesFromTrack(currentSecondInVideo, midi.tracks[1]),
         ];
 
         activesNotesAtFrame.map((note) => {
