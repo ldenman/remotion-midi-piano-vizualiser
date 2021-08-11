@@ -4,6 +4,7 @@ import styled from 'styled-components';
 interface Props {
     midiNumber: string;
     activeNotes: array;
+    delay: number;	
 }
 export const Solfege: FunctionComponent<Props> = ({ bottom, height }) => {
     return <Container />;

@@ -1,7 +1,7 @@
 import { Composition } from 'remotion';
 import '../assets/font.css';
 import midiData from './api/midi.json';
-import { FPS } from './constant';
+import { DELAY_BEFORE_MUSIC_START, TITLE_DURATION, FPS } from './constant';
 import './customPianoStyles.css'; // import a set of piano color overrides
 import { PianoComposition } from './PianoComposition';
 
@@ -15,7 +15,7 @@ export const RemotionVideo: React.FC = () => {
         <Composition
             id="PianoComposition"
             component={PianoComposition}
-            durationInFrames={SONG_DURATION}
+            durationInFrames={DELAY_BEFORE_MUSIC_START + SONG_DURATION}
             fps={FPS}
             width={WIDTH}
             height={HEIGHT}

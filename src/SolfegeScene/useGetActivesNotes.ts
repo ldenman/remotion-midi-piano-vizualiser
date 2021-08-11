@@ -9,7 +9,7 @@ const typedSolfegeData: SolfegeData = solfegeData;
 const getActivesNotesAtFrame = (frame: number, typedSolfegeData: ActiveFrameForSolfege) => {
     const activeNotes: Array<number> = [];
     Object.keys(typedSolfegeData).forEach((midiNumber: string) => {
-        const isNoteActive = typedSolfegeData[midiNumber].includes(frame - DELAY_BEFORE_MUSIC_START);
+        const isNoteActive = typedSolfegeData[midiNumber].includes(frame);
         if (isNoteActive) {
             activeNotes.push(midiNumber);
         }

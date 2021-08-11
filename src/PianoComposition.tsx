@@ -16,18 +16,15 @@ export const PianoComposition: FunctionComponent = () => {
                 <Background />
             </AbsoluteFill>
 
-            <Sequence from={TITLE_DURATION} durationInFrames={Infinity} name="Notes">
-                <NotesScene delay={DELAY_BEFORE_FIRST_NOTE} />
-            </Sequence>
-            <Sequence from={DELAY_BEFORE_MUSIC_START} durationInFrames={Infinity} name="Audio">
+            <Sequence from={TITLE_DURATION} durationInFrames={Infinity} name="Audio">
                 <Audio src={audio} />
             </Sequence>
 
             <Sequence from={TITLE_DURATION} durationInFrames={Infinity} name="Solfege">
-                <SolfegeScene delay={DELAY_BEFORE_FIRST_NOTE} />
+                <SolfegeScene />
             </Sequence>
 
-            <Sequence from={0} durationInFrames={Infinity} name="Piano">
+            <Sequence from={TITLE_DURATION} durationInFrames={Infinity} name="Piano">
                 <PianoScene />
             </Sequence>
             <Sequence from={0} durationInFrames={Infinity} name="Title">
